@@ -6,6 +6,7 @@
       @onClickA="onClickA" 
       :fatherMethod="fatherMethod"
       :fatherData="fatherData"
+      v-on:sonChangeFaDataEvent = "zidiyi($event)"
     >
     </child>
     
@@ -18,7 +19,7 @@
         b
       </div>
     </div>
-    <div>this.$data this.$emit this.$parent props :style ref</div>
+    <div>this.$data this.$emit this.$parent props :style ref 自定义事件名</div>
   </div>
 </template>
 
@@ -55,6 +56,11 @@ export default {
       console.log(this.$data.aStyle.fontWeight)
       this.$data.aStyle.fontWeight == 'bold' ? this.$data.aStyle.fontWeight = 'normal' : this.$data.aStyle.fontWeight = 'bold'
       this.$data.aStyle.backgroundColor == 'blue' ? this.$data.aStyle.backgroundColor = 'skyblue' : this.$data.aStyle.backgroundColor = 'blue'
+    },
+
+    zidiyi(msg){
+      console.log('child传过来：', msg);  
+      this.fatherData = msg;
     }
   }
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="test" @click="childMethod3()">child div</div>
-    <div class="test" >{{fatherData}}</div>
+    <div class="test" @click="childChangeFatherData">{{fatherData}}点击改变父组件data</div>
   </div>
 
 </template>
@@ -39,7 +39,11 @@ export default {
         if (this.fatherMethod) {
           this.fatherMethod();
         }
-      }
+    },
+    childChangeFatherData() {
+      console.log('childChangeFatherData')
+      this.$emit('sonChangeFaDataEvent','son改变后的data')//(自定义事件名, 修改后参数)
+    }
   },
 }
 </script>

@@ -1,113 +1,104 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+  <div>
+    <h1>hello</h1>
+    <!-- <to-do-list></to-do-list> -->
+    <child
+      @fatherMethod="fatherMethod"
+      @onClickA="onClickA"
+      :fatherMethod="fatherMethod"
+      :fatherData="fatherData"
+      v-on:sonChangeFaDataEvent="zidiyi($event)"
+    >
+    </child>
+
+    <div class="divcss">
+      <span @click="fatherMethod">fatherMethodDiv</span>
+      <div
+        class="acss"
+        :style="aStyle"
+        ref="aRef"
+        @click="onClickA"
+      >
+        a
+      </div>
+      <div class="bcss">
+        b
+      </div>
+    </div>
+    <div>this.$data this.$emit this.$parent props :style ref 自定义事件名</div>
   </div>
 </template>
 
 <script>
+import ToDoList from './toDoList.vue' 
+import child  from './child.vue'//导入
 export default {
-  name: 'HelloWorld',
-  data () {
+  name: 'App',
+  components:{  //注册 引用
+    ToDoList,
+    child
+  },
+  mixins:[],
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      fatherData: 'this fatherData',
+      aStyle: {
+        fontWeight: 'bold',
+        backgroundColor: 'blue'
+      },
+
+    }
+  },
+  watch: {
+
+  },
+  methods: {
+    fatherMethod() {
+      console.log('fatherMethod')
+      this.$data.aStyle.fontWeight == 'bold' ? this.$data.aStyle.fontWeight = 'normal' : this.$data.aStyle.fontWeight = 'bold'
+    },
+    onClickA () {
+      console.log('onClickA',this.$refs.aRef)
+      console.log(this.$data.aStyle.fontWeight)
+      this.$data.aStyle.fontWeight == 'bold' ? this.$data.aStyle.fontWeight = 'normal' : this.$data.aStyle.fontWeight = 'bold'
+      this.$data.aStyle.backgroundColor == 'blue' ? this.$data.aStyle.backgroundColor = 'skyblue' : this.$data.aStyle.backgroundColor = 'blue'
+    },
+
+    zidiyi(msg){
+      console.log('child传过来：', msg);  
+      this.fatherData = msg;
     }
   }
+
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.divcss{
+  margin: 0 auto;
+  width: 180px;
+  height: 60px;
+  background: skyblue;
+  overflow: hidden;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.acss{
+  float: left;
+  width: 50%;
+  height: 30px;
+  line-height: 30px;
 }
-a {
-  color: #42b983;
+.bcss{
+  float: left;
+  width: 50%;
+  height: 30px;
+  line-height: 30px;
 }
 </style>

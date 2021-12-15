@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <router-link to="/test01">tototo</router-link>
+    <router-view></router-view>
     <to-do-list></to-do-list>
     <child  
       @fatherMethod="fatherMethod" 

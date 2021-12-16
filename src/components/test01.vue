@@ -1,7 +1,6 @@
 <template>
   <div class="hello">
     <h1>{{ msg | msgFormat('arg1','arg2')}}</h1>
-
     <ul  v-for="item in list" :key="item.id">
       <li style="color: red">{{item.value | aa}}</li>
     </ul>

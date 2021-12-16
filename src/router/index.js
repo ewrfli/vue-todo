@@ -8,6 +8,7 @@ import mixinDetails from '../components/mixinDetails.vue'
 import sfatherComponent from '../components/sfatherComponent.vue'
 import busA from '../components/busA.vue'
 import busB from '../components/busB.vue'
+import watch from '../components/watch.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -44,6 +45,10 @@ export default new Router({
     {
       path: "/busB",
       component: busB
+    },
+    {
+      path: "/watch",
+      component: watch
     }
   ]
 })

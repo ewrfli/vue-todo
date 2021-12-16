@@ -10,7 +10,9 @@
     <router-link to="/sfatherComponent">to sfatherComponent</router-link> <br>
 
     <router-link to="/busA">to busA</router-link>
-    <router-link to="/busB">to busB</router-link>
+    <router-link to="/busB">to busB</router-link>  <br>
+
+    <router-link to="/watch">to watch</router-link>
     <router-view></router-view>
   </div>
 </template>

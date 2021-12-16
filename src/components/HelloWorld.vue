@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>hello</h1>
+    <h1>helloworld-fatherComponent</h1>
     <!-- <to-do-list></to-do-list> -->
     <child
       @fatherMethod="fatherMethod"
@@ -31,7 +31,7 @@
 
 <script>
 import ToDoList from './toDoList.vue' 
-import child  from './child.vue'//导入
+import child  from './sonComponents/child.vue'//导入
 export default {
   name: 'App',
   components:{  //注册 引用

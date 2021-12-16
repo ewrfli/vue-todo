@@ -3,8 +3,9 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import test01 from '@/components/test01'
 import toDoList from '@/components/toDoList'
-import child from '@/components/child'
+import child from '@/components/sonComponents/child'
 import mixinDetails from '../components/mixinDetails.vue'
+import sfatherComponent from '../components/sfatherComponent.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -29,6 +30,10 @@ export default new Router({
     {
       path: "/mixinDetails",
       component: mixinDetails
+    },
+    {
+      path: "/sfatherComponent",
+      component: sfatherComponent
     }
   ]
 })

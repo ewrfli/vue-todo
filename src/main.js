@@ -10,6 +10,16 @@ Vue.config.productionTip = false
 Vue.prototype.$EventBus = new Vue()
 // 全局的不用引入event-bus.js，只需this.$EventBus就可以调用$emit、$on、$off等方法。
 
+// 定义无参全局过滤器
+// Vue.filter('msgFormat', function(msg) {    // msg 为固定的参数 即是你需要过滤的数据
+//   return msg + 'xxxxxxxx'
+// })
+
+// 定义有参全局过滤器
+Vue.filter('msgFormat', function(msg, arg1, arg2) {    // msg 为固定的参数 即是你需要过滤的数据
+  return msg + 'xxxxxx' + arg1 + arg2
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <div class="test" @click="childMethod3()">child div</div>
-    <div class="test" @click="childChangeFatherData">{{fatherData}}点击改变父组件data</div>
+  <div class="childDiv">
+    childComponent
+    <div class="test" @click="childMethod3()">childMethod</div>
+    <div class="test" @click="childChangeFatherData">
+      {{fatherData}}  <br>
+      <button>点击改变父组件data</button>
+    </div>
   </div>
 
 </template>
@@ -19,7 +23,9 @@ export default {
     }
   },
   data () {
-    return {}
+    return {
+      msg: 'msg from child'
+    }
   },
   methods: {
     //1. $emit
@@ -36,6 +42,12 @@ export default {
     },
     //
     childMethod3() {
+        console.log('childMethod3: this.$parent',this.$parent)
+        // 获取指定父组件中的指定数据
+        console.log('获取指定父组件中的指定数据:',this.$parent.fatherData)
+        // 调用父组件的方法
+        this.$parent.fatherMethod()
+
         if (this.fatherMethod) {
           this.fatherMethod();
         }
@@ -43,15 +55,25 @@ export default {
     childChangeFatherData() {
       console.log('childChangeFatherData')
       this.$emit('sonChangeFaDataEvent','son改变后的data')//(自定义事件名, 修改后参数)
+    },
+    fun () {
+      console.log('child fun')
     }
+
   },
 }
 </script>
 
 <style type="text/css" scoped>
+  .childDiv{
+    margin: 0 auto;
+    width: 250px;
+    height: 100px;
+    border: blue solid 1px;
+  }
   .test{
     margin: 0 auto;
-    width: 80px;
+    width: 220px;
     border: skyblue solid 1px;
     color: skyblue;
   }

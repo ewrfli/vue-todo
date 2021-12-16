@@ -12,15 +12,10 @@ export default {
   name: 'sSonComponent',
   data() {
     return {
-      user: [
-        { name: 'Jack', sex: 'boy' },
-        { name: 'Jone', sex: 'girl' },
-        { name: 'Tom', sex: 'boy' }
-      ]
     }
   }
 }
-    </script>
+</script>
 <style>
 .sSonComponent {
   margin: 0 auto;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="fatherComponentDiv">
     <h1>helloworld-fatherComponent</h1>
     <!-- <to-do-list></to-do-list> -->
     <child
@@ -12,7 +12,8 @@
     </child>
 
     <div class="divcss">
-      <span @click="fatherMethod">fatherMethodDiv</span>
+      <span @click="fatherMethod">fatherMethod</span>
+      <div style="color: red">{{fatherData}}</div>
       <div
         class="acss"
         :style="aStyle"
@@ -52,9 +53,18 @@ export default {
   watch: {
 
   },
+  mounted () {
+    // 获取到所有的子组件，结果是一个数组
+    console.log(this.$children)
+    // 获取指定子组件中的指定数据
+    console.log(this.$children[0].msg)
+    // 调用子组件的方法
+    this.$children[0].fun()
+  },
+
   methods: {
     fatherMethod() {
-      console.log('fatherMethod')
+      console.log('子组件调用父组件方法fatherMethod')
       this.$data.aStyle.fontWeight == 'bold' ? this.$data.aStyle.fontWeight = 'normal' : this.$data.aStyle.fontWeight = 'bold'
     },
     onClickA () {
@@ -74,6 +84,11 @@ export default {
 </script>
 
 <style>
+.fatherComponentDiv {
+  width: 800px;
+  height: 400px;
+  border: steelblue solid 2px;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -84,8 +99,8 @@ export default {
 }
 .divcss{
   margin: 0 auto;
-  width: 180px;
-  height: 60px;
+  width: 100%;
+  height: 40%;
   background: skyblue;
   overflow: hidden;
 }

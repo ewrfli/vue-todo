@@ -6,6 +6,8 @@ import toDoList from '@/components/toDoList'
 import child from '@/components/sonComponents/child'
 import mixinDetails from '../components/mixinDetails.vue'
 import sfatherComponent from '../components/sfatherComponent.vue'
+import busA from '../components/busA.vue'
+import busB from '../components/busB.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -34,6 +36,14 @@ export default new Router({
     {
       path: "/sfatherComponent",
       component: sfatherComponent
+    },
+    {
+      path: "/busA",
+      component: busA
+    },
+    {
+      path: "/busB",
+      component: busB
     }
   ]
 })

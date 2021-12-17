@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	<a href="#/login">登录</a>
+	<a href="#/register">注册</a>
+	<div id="app"></div>
+	<script type="text/javascript">
+		var oDiv = document.getElementById('app');
+		
+		// onhashchange方法,哈希值改变后调用的方法
+		// a标签中href属性的值就是哈希值
+		window.onhashchange = function(){
+			// 访问到用户点击的哈希值
+			console.log(location.hash);
+			// 根据哈希值来做相对应的处理
+			switch (location.hash){
+				case '#/login':
+					oDiv.innerHTML = '<h2>我是登录页面</h2>'
+					break;
+				case '#/register':
+					oDiv.innerHTML = '<h2>我是注册页面</h2>'	
+					break;
+				default:
+					break;
+			}
+		}
+	</script>
+</body>
+</html>

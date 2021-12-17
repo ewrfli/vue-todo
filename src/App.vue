@@ -13,7 +13,9 @@
       <router-link to="/busB">to busB</router-link>  <br>
 
       <router-link to="/watch">to watch</router-link>
-      <router-link to="/computed">to computed</router-link>
+      <router-link to="/computed">to computed</router-link> <br>
+
+      <router-link to="/vueSet">to vueSet</router-link>
 
     <router-view></router-view>
   </div>

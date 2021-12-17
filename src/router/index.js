@@ -10,6 +10,7 @@ import busA from '../components/busA.vue'
 import busB from '../components/busB.vue'
 import watch from '../components/watch.vue'
 import computed from '../components/computed.vue'
+import vueSet from '../components/vueSet.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -54,6 +55,10 @@ export default new Router({
     {
       path: "/computed",
       component: computed
+    },
+    {
+      path: "/vueSet",
+      component: vueSet
     }
   ]
 })

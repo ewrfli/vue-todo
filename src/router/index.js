@@ -9,6 +9,7 @@ import sfatherComponent from '../components/sfatherComponent.vue'
 import busA from '../components/busA.vue'
 import busB from '../components/busB.vue'
 import watch from '../components/watch.vue'
+import computed from '../components/computed.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -49,6 +50,10 @@ export default new Router({
     {
       path: "/watch",
       component: watch
+    },
+    {
+      path: "/computed",
+      component: computed
     }
   ]
 })

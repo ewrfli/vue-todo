@@ -85,6 +85,7 @@ export default {
 
 <style>
 .fatherComponentDiv {
+  margin: 0 auto;
   width: 800px;
   height: 400px;
   border: steelblue solid 2px;

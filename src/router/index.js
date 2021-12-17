@@ -11,6 +11,7 @@ import busB from '../components/busB.vue'
 import watch from '../components/watch.vue'
 import computed from '../components/computed.vue'
 import vueSet from '../components/vueSet.vue'
+import nextTick from '../components/nextTick.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -59,6 +60,10 @@ export default new Router({
     {
       path: "/vueSet",
       component: vueSet
+    },
+    {
+      path: "/nextTick",
+      component: nextTick
     }
   ]
 })

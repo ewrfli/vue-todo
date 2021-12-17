@@ -1,8 +1,9 @@
 <template>
   <div id="app">
+    <keep-alive>
       <router-link to="/">to/ hello-father</router-link>
       <router-link to="/child">to child</router-link> <br>
-
+    </keep-alive>
       <router-link to="/test01">to test01</router-link> 
       <router-link to="/toDoList">to toDoList</router-link> <br>
       
@@ -16,7 +17,7 @@
       <router-link to="/computed">to computed</router-link> <br>
 
       <router-link to="/vueSet">to vueSet</router-link>
-
+      <router-link to="/nextTick">to nextTick</router-link>
     <router-view></router-view>
   </div>
 </template>
